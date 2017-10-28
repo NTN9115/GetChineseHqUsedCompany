@@ -1,15 +1,14 @@
+#select useful
 import json
-with open('hqinfosplit1.json') as f:
+with open('Data/hqinfocp01.json') as f:
     allinfo = json.load(f)
 cinfo = []
 a = 0
 t = 0
 q = []
-right = 0;
-wrong = 0;
 while a <= len(allinfo)-1:
     cnum = int(allinfo[a][0])
-
+    x=[]
     b = cnum+1
     while b<=len(allinfo[a])-1:
         try:
@@ -27,11 +26,11 @@ while a <= len(allinfo)-1:
                     elif cnum ==4:
                         t = int(allinfo[a][1] in s[c]) + int(allinfo[a][2] in s[c]) + int(allinfo[a][3] in s[c])+int(allinfo[a][4] in s[c])
                     q = cnum-t
-                    if q==1:
-                        print(s[c])
-                        x = input('long?')
+                    if q!=0:
+                        x.append(s[c])
                 c = c+1
         b =b +1
     a = a+1
-with open('usedcpun.json','w') as f:
+    cinfo.append(x)
+with open('Data/hqinfoselect.json','w') as f:
     json.dump(cinfo,f,ensure_ascii=False)

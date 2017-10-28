@@ -22,4 +22,3 @@ def cut(a=[]):
                         y.append(q)
 
     return y
-print(cut(d))

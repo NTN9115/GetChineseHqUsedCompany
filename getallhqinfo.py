@@ -1,4 +1,4 @@
-# make a list of company and hq
+# make a list of company and hq (step1)
 import json
 from readacompyhq import readhq
 with open('Data/stock2.json') as f:

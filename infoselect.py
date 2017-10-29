@@ -19,15 +19,19 @@ while a <= len(allinfo)-1:
             c = 0
             while c <=len(s)-1:
                 if len(s[c])>3:
-                    if cnum == 2:
-                        t = int(allinfo[a][1] in s[c])+int(allinfo[a][2] in s[c])
-                    elif cnum == 3:
-                        t = int(allinfo[a][1] in s[c]) + int(allinfo[a][2] in s[c])+int(allinfo[a][3] in s[c])
-                    elif cnum ==4:
-                        t = int(allinfo[a][1] in s[c]) + int(allinfo[a][2] in s[c]) + int(allinfo[a][3] in s[c])+int(allinfo[a][4] in s[c])
-                    q = cnum-t
-                    if q!=0:
-                        x.append(s[c])
+                    try:
+                        if cnum == 2:
+                            t = int(allinfo[a][1] in s[c])+int(allinfo[a][2] in s[c])
+                        elif cnum == 3:
+                            t = int(allinfo[a][1] in s[c]) + int(allinfo[a][2] in s[c])+int(allinfo[a][3] in s[c])
+                        elif cnum ==4:
+                            t = int(allinfo[a][1] in s[c]) + int(allinfo[a][2] in s[c]) + int(allinfo[a][3] in s[c])+int(allinfo[a][4] in s[c])
+                        q = cnum-t
+                        if q!=0:
+                            x.append(s[c])
+                    except TypeError as e:
+                        print(e)
+                        print(allinfo[a][1])
                 c = c+1
         b =b +1
     a = a+1

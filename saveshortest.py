@@ -1,16 +1,23 @@
 #get shortestname
-tes=['中国工商银行', '上海国际集团有限公司', '上海国际集团']
-def s_s(test = [1,1]):
-    c =test[:]
-    a = 0
-    while a<=len(test)-1 :
-        b = 0
-        while b<=len(test)-1:
-            if a != b and test[a] in test[b] and test[b] not in test[a]:
-                try:
-                    del c[b]
-                except IndexError as e:
-                    print(e)
-            b = b+1
-        a = a+1
-    return c
+tes=['中国工商银行', '上海国际集团', '上海浦东发展银行', '上海国际集团有限公司']
+def s_s(test = []):
+    c = []
+    d = []
+    tnn = sorted(test,key=len)
+    try:
+        c.append(tnn[0])
+    except IndexError as e:
+        print(e)
+    for tn in tnn[1:]:
+        n = 0
+        for cc in c:
+            if cc not in tn:
+                n = n+1
+
+        if n == len(c) and tn not in c:
+            c.append(tn)
+    for nn in c:
+        if len(nn) > 3:
+            d.append(nn)
+    return d
+print(s_s(tes))

@@ -4,12 +4,14 @@ def remvnow(te = [],tr =[]):
     a = te[:]
     b = tr[:]
     q = []
+    try:
+        b1 = b[0]
+    except IndexError :
+        return te
     if len(tr)==0:
         return te
     else:
         for ar in a:
-            for arr in b:
-                if ar not in arr or arr not in ar and arr != '':
-
-                    q.append(ar)
-        return q
+            if b1 not in ar:
+                q.append(ar)
+    return q

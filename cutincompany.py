@@ -18,12 +18,12 @@ for all1 in allinfo:
        cpin = []
        cpin1 = []
        cpin2 =[]
-       for b in range(0,cnum+1):
-           cpin.append(all1[b])
+
+       cpin.append(all1[1:cnum+1])
        for b in all1[cnum+1:]:
            cpin1.append(cut(b))
-       for b in cpin1:
-           for nx in b:
+       for a in cpin1:
+           for nx in a:
                cpin2.append(nx)
    cpin.append(cpin2)
    cpinfo.append(cpin)

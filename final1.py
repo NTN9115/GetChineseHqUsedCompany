@@ -1,10 +1,12 @@
 import json
+import csv
 with open('Data/final.json') as f:
     allcoms = json.load(f)
-n1 =[]
-for coms in allcoms:
-    for com in coms:
-        n1.append(com)
-print(n1)
-with open('Data/final.json','w') as f:
-    json.dump(n1,f,ensure_ascii=False)
+companies =[]
+headers = ['companies']
+for com in allcoms:
+    cp = (com,)
+    companies.append(cp)
+with open('Data/stocks.csv','w') as f:
+    f_csv = csv.writer(f)
+    f_csv.writerows(companies)
